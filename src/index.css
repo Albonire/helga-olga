@@ -13,6 +13,19 @@
     color: #2B2118;
   }
 
+  /* Altura real del área visible en móvil (excluye las barras del navegador).
+     En escritorio se mantiene 100vh, exactamente como antes. */
+  .letter-shell {
+    height: 100vh;
+    height: 100svh;
+  }
+
+  @media (min-width: 640px) {
+    .letter-shell {
+      height: 100vh;
+    }
+  }
+
   h1, h2, h3, .font-display {
     font-family: var(--font-display);
   }
@@ -55,5 +68,45 @@
   .animate-chapter-line-1,
   .animate-chapter-line-2 {
     animation: none;
+  }
+}
+
+/* Celulares en horizontal (poca altura): la carta también cabe completa.
+   Se limita a punteros táctiles para no afectar al escritorio. */
+@media (max-height: 540px) and (orientation: landscape) and (pointer: coarse) {
+  .letter-shell {
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+  }
+
+  .letter-shell header span {
+    font-size: 1.1rem;
+    line-height: 1.2;
+  }
+
+  .letter-shell main canvas {
+    width: min(260px, 38vw);
+    height: clamp(110px, 38svh, 190px);
+  }
+
+  .letter-shell .chapter-text {
+    margin-top: 0.375rem;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .letter-shell .chapter-title {
+    font-size: 1.3rem;
+    line-height: 1.15;
+  }
+
+  .letter-shell .chapter-body {
+    margin-top: 0.375rem;
+    font-size: 0.875rem;
+    line-height: 1.45;
+  }
+
+  .letter-shell .chapter-body > p + p {
+    margin-top: 0.25rem;
   }
 }

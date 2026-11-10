@@ -1652,7 +1652,7 @@ export const ProceduralGoldCanvas: React.FC<ProceduralGoldCanvasProps> = ({
         role={interactive ? 'button' : 'img'}
         aria-label="Ilustración animada a mano: la manilla con dije de trébol dibujándose y transformándose en un corazón para Helga (Olga)"
         className={[
-          'w-[310px] h-[270px] sm:w-[420px] sm:h-[340px] touch-manipulation rounded-2xl',
+          'w-[310px] max-w-full h-[clamp(150px,38svh,270px)] sm:w-[420px] sm:h-[340px] touch-manipulation rounded-2xl',
           'focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#C5922A]/60 focus-visible:ring-offset-4',
           interactive ? 'cursor-pointer' : 'cursor-default',
         ].join(' ')}

@@ -181,7 +181,7 @@ export default function App() {
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
-      className="h-screen w-screen overflow-hidden bg-[#FAF6EE] text-[#2B2118] flex flex-col justify-between px-6 py-8 sm:px-12 sm:py-10 relative"
+      className="letter-shell w-screen overflow-hidden bg-[#FAF6EE] text-[#2B2118] flex flex-col justify-between px-5 pt-3 pb-3 sm:px-12 sm:py-10 relative"
     >
       {!isLetterOpened && (
         <LetterOpeningModal
@@ -234,14 +234,14 @@ export default function App() {
       <YouTubePianoDrawer isPlaying={isMusicPlaying} />
 
       {/* Top Dedication Title in expressive Fraunces signature typography */}
-      <header className="w-full text-center z-20 pt-1">
-        <span className="font-signature italic text-2xl sm:text-3xl font-normal text-[#3D2E1E] tracking-tight">
+      <header className="w-full text-center z-20 pt-0 sm:pt-1">
+        <span className="font-signature italic text-[22px] sm:text-3xl font-normal text-[#3D2E1E] tracking-tight">
           Para Helga, mi Olga
         </span>
       </header>
 
       {/* Center Single-Screen Stage: Organic Hand-Drawn Illustration + Fade-In & Slide-Up Chapter Text */}
-      <main className="flex-1 flex flex-col items-center justify-center w-full max-w-xl mx-auto text-center my-auto">
+      <main className="flex-1 min-h-0 flex flex-col items-center justify-center w-full max-w-xl mx-auto text-center my-auto">
         <ProceduralGoldCanvas
           narrativeState={narrativeState}
           onCanvasTap={handleCanvasTap}
@@ -251,7 +251,7 @@ export default function App() {
         <div
           key={activeChapter.id}
           aria-live="polite"
-          className="mt-3 sm:mt-5 px-2"
+          className="chapter-text mt-2 px-1 sm:mt-5 sm:px-2"
         >
           {activeChapter.isClosing ? (
             /* Escena de cierre: la firma manuscrita de la carta, sin más texto */
@@ -285,13 +285,13 @@ export default function App() {
           ) : (
             <>
               <h1
-                className="animate-chapter-title font-display text-3xl sm:text-4xl font-medium text-[#2B2118]"
+                className="chapter-title animate-chapter-title font-display text-2xl sm:text-4xl font-medium text-[#2B2118]"
                 style={{ textWrap: 'balance' }}
               >
                 {activeChapter.title}
               </h1>
 
-              <div className="mt-3 space-y-2 text-base sm:text-lg text-[#3D3022] font-prose leading-relaxed">
+              <div className="chapter-body mt-2 space-y-1.5 text-[15px] leading-[1.5] sm:mt-3 sm:space-y-2 sm:text-lg sm:leading-relaxed text-[#3D3022] font-prose">
                 {activeChapter.lines.map((line, idx) => (
                   <p
                     key={`${activeChapter.id}-${idx}`}
@@ -306,7 +306,7 @@ export default function App() {
         </div>
       </main>
 
-      <div className="h-4" aria-hidden="true" />
+      <div className="h-2 sm:h-4" aria-hidden="true" />
     </div>
   );
 }
