@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-signature: 'Fraunces', 'Playfair Display', Georgia, serif;
+    --font-display: 'Playfair Display', Georgia, 'Times New Roman', serif;
+    --font-serif: 'Lora', Georgia, 'Times New Roman', serif;
+  }
+
+  html {
+    font-family: var(--font-serif);
+    background-color: #FAF6EE;
+    color: #2B2118;
+  }
+
+  h1, h2, h3, .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-signature {
+    font-family: var(--font-signature);
+    font-variation-settings: "SOFT" 100, "WONK" 1;
+  }
+
+  .font-prose {
+    font-family: var(--font-serif);
+  }
+}
+
+@keyframes fadeSlideUp {
+  0% {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-chapter-title {
+  animation: fadeSlideUp 520ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.animate-chapter-line-1 {
+  animation: fadeSlideUp 560ms cubic-bezier(0.16, 1, 0.3, 1) 90ms both;
+}
+
+.animate-chapter-line-2 {
+  animation: fadeSlideUp 600ms cubic-bezier(0.16, 1, 0.3, 1) 180ms both;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-chapter-title,
+  .animate-chapter-line-1,
+  .animate-chapter-line-2 {
+    animation: none;
+  }
+}
